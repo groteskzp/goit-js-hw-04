@@ -1,24 +1,25 @@
-// Станція з продажу ремонтних дроїдів готова до запуску,
-// залишилося написати програмне забезпечення для відділу продажів.
-// Оголоси функцію makeTransaction, яка очікує два параметри,
-//  значення яких будуть задаватися під час її виклику: 
-// • quantity— перший параметр, число, що містить кількість замовлених дроїдів 
-// • pricePerDroid — другий параметр, число, що містить вартість одного дроїда
+// Напиши функцію isEnoughCapacity(products, containerSize), яка обчислює, чи помістяться всі товари в контейнер при пакуванні.
 // 
-// Доповни код функції так, щоб вона повертала рядок з повідомленням про покупку ремонтних дроїдів:
-//  "You ordered <quantity> droids worth <totalPrice> credits!", 
-// де: • <quantity> — це кількість замовлених дроїдів 
-// • <totalPrice> — це загальна вартість замовлення, тобто вартість усіх замовлених дроїдів
+// Функція оголошує два параметри:
 // 
-// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. 
-// У консоль будуть виведені результати її роботи.
+// // products — об’єкт, у якому ключі містять назви товарів, а їхні значення — кількість цих товарів. Наприклад, { apples: 2, grapes: 4 }.
+// // containerSize — число, максимальна кількість одиниць товарів, яку в себе може вмістити контейнер.
+// // // Функція має повернути результат перевірки, чи помістяться всі товари в контейнер. Тобто порахувати загальну кількість товарів в об’єкті products і повернути true, якщо вона менше або дорівнює containerSize, і false, якщо ні.
+// 
+// // Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її викликів.
 
+console.log(
+  isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)
+); // true
 
+console.log(
+  isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)
+); // false
 
-function makeTransaction(quantity, pricePerDroid) {
-    return `You ordered ${quantity} droids worth ${quantity * pricePerDroid} credits!`;
-}
+console.log(
+  isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)
+); // true
 
-console.log(makeTransaction(5, 3000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
+console.log(
+  isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)
+); // false
